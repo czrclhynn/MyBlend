@@ -1,70 +1,75 @@
-# MyBlend
+# MyBlend — Personal Drink Blend Tracker
 
-**Blend it. Rate it. Remember it.**
+MyBlend is a web-based drink experimentation and recipe tracking application designed for coffee lovers, matcha enthusiasts, tea drinkers, and anyone who enjoys creating their own beverages.
 
-MyBlend is a portfolio-level personal drink experimentation lab. It combines a recipe journal, version history, experiment log, pantry tracker, taste profile, comparison mode, and data-driven recommendations.
+Instead of simply saving recipes, MyBlend allows users to record how they make each drink, including ingredients, measurements, taste characteristics, ratings, and notes. Every drink can evolve through multiple versions, allowing users to compare previous blends and identify which version works best for them.
 
-## What changed from the original prototype
+The goal of MyBlend is to help users remember their favorite recipes, understand what makes a drink better or worse, and make more informed adjustments when creating their next blend.
 
-The attached HTML prototype used a compact mobile/localStorage experience with basic blend cards, simple ratings, pantry items, and variation modals. This rebuild keeps those useful concepts but redesigns the experience around a wider desktop workbench, persistent version timelines, recipe sheets, Blend DNA, analytics, comparison mode, one-variable experiments, and a deterministic recommendation engine.
+---
 
-The uploaded coffee site screenshot was treated strictly as visual direction: warm cream, espresso brown, caramel accents, editorial typography, premium cards, and coffee-shop warmth. MyBlend is intentionally **not** an e-commerce catalog.
+## Tech Stack
 
-## Stack
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-- Next.js App Router + React + TypeScript
-- Tailwind CSS
-- Framer Motion
-- Lucide React
-- Recharts
-- React Hook Form / Zod ready
-- Supabase PostgreSQL + Auth + Storage ready
-- Deterministic recommendation engine with optional AI enhancement later
+---
 
-## Run
+## Project Overview
 
-```bash
-npm install
-npm run dev
-```
+MyBlend organizes homemade drinks into categories such as:
 
-Then open `http://localhost:3000`.
+- ☕ Coffee
+- 🍵 Matcha
+- 🫖 Tea
+- 🧋 Boba
+- 🥛 Milk Drinks
+- 🍓 Smoothies
+- 🍹 Mocktails
+- 🧃 Juices
+- 🥤 Other
 
-The app seeds a realistic demo dataset into `localStorage`, so it works without Supabase credentials.
+Users can create their own drink blends and record the exact ingredients and measurements used.
 
-## Supabase
+Each drink can have multiple versions, making it possible to experiment with different ingredient amounts, brands, sweetness levels, milk choices, ice levels, and other variables without losing previous recipes.
 
-1. Create a Supabase project.
-2. Copy `.env.example` to `.env.local`.
-3. Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
-4. Run `supabase/schema.sql` in the Supabase SQL editor.
-5. Add Auth providers as desired.
-6. Replace demo persistence calls with Supabase queries using the included client/server helpers.
+---
 
-The schema enables Row Level Security so each authenticated user can access only their own recipes, versions, experiments, pantry, profile, favorites, and recommendations.
+## Core Features
 
-## Recommendation engine
+### 🧪 Blend Creation
 
-The core engine is deterministic and continues to work when no AI key exists. It compares the latest experiment with prior versions, looks at lower taste dimensions, checks pantry availability, and recommends one or two focused next experiments. It uses cautious wording and does not claim causation from a single change.
+Create and save personalized drinks by recording:
 
-Optional AI output can later transform the structured recommendation into more natural language without replacing the rule-based fallback.
+- Drink name
+- Category
+- Ingredients
+- Ingredient amounts
+- Units of measurement
+- Ingredient brands
+- Preparation method
+- Temperature
+- Ice level
+- Serving size
+- Personal notes
 
-## Main flows included
+---
 
-- Dashboard / Blend Lab
-- Create Blend wizard
-- My Blends with search, category filter, favorites, and sorting
-- Blend detail with recipe sheet, Blend DNA, version timeline, change log, and comparison
-- Create Variation without overwriting older versions
-- Make Again / Experiment logging with 0–10 rating and taste sliders
-- Deterministic recommendations
-- Experiments history
-- Pantry with low-stock and expiry indicators
-- Insights with Recharts
-- Settings / taste profile
-- Responsive desktop sidebar + mobile bottom navigation
-- Demo auth pages for future Supabase Auth wiring
+### 🔄 Blend Versioning
 
-## Portfolio note
+Every modification can become a new version of the drink instead of replacing the previous recipe.
 
-For a portfolio presentation, the strongest story is the version-control metaphor: **recipe → experiment → observation → variation → better-informed next experiment**. That is the core product differentiator of MyBlend.
+For example:
+
+```text
+Strawberry Matcha
+
+Version 1 → 7.2/10
+Version 2 → 8.1/10
+Version 3 → 8.7/10
+Version 4 → 9.2/10 ★
