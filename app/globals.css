@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --cream:#F8F3EA; --paper:#FFFDF9; --espresso:#3A261C; --soft:#725C4D; --caramel:#C9945A; --caramel-soft:#E6C08B; --sage:#AAB89A; --green:#526446; --line:#E8DED0; --rose:#C97878; }
+* { box-sizing: border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--cream); color:var(--espresso); font-family:'Manrope',sans-serif; }
+button,input,select,textarea { font:inherit; }
+button { cursor:pointer; }
+::selection { background:rgba(201,148,90,.25); }
+
+.bg-grid { background-image:linear-gradient(rgba(58,38,28,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(58,38,28,.035) 1px, transparent 1px); background-size:24px 24px; }
+.paper-noise { position:relative; overflow:hidden; }
+.paper-noise:before { content:''; position:absolute; inset:0; opacity:.22; pointer-events:none; background-image:radial-gradient(rgba(58,38,28,.12) .6px, transparent .6px); background-size:10px 10px; mix-blend-mode:multiply; }
+.serif { font-family:'Fraunces',serif; }
+
+.scrollbar-thin::-webkit-scrollbar { width:6px; height:6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background:#d5c9ba; border-radius:99px; }
+
+input[type=range] { accent-color: var(--green); }
+
+.card { @apply rounded-3xl border border-line bg-paper shadow-soft; }
+.small-label { @apply text-[11px] font-extrabold uppercase tracking-[.14em] text-soft; }
+.btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-espresso px-4 py-3 text-sm font-extrabold text-paper transition hover:-translate-y-0.5 hover:shadow-soft; }
+.btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-line bg-paper px-4 py-3 text-sm font-extrabold text-espresso transition hover:-translate-y-0.5 hover:shadow-soft; }
+.btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded-2xl px-3 py-2 text-sm font-bold text-soft transition hover:bg-black/[.04] hover:text-espresso; }
+
+.fade-up { animation: fadeUp .55s ease both; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+.pop { animation: pop .45s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes pop { from { opacity:0; transform:scale(.97); } to { opacity:1; transform:scale(1); } }
+
+@media (max-width: 900px) { .desktop-only { display:none !important; } }
+@media (min-width: 901px) { .mobile-only { display:none !important; } }
