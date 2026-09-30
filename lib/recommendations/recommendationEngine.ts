@@ -7,7 +7,7 @@ export function recommend(current: Experiment, currentVersion: Version, previous
   const candidates: string[] = []
   const t=current.taste
   const lowest = Object.entries({
-    bitterness: t.bitterness,
+    bitterness: 10 - t.bitterness,
     sweetness: 10 - t.sweetness,
     strength: 10 - t.strength,
     creaminess: 10 - t.creaminess,
