@@ -6,6 +6,8 @@ Instead of simply saving recipes, MyBlend allows users to record how they make e
 
 The goal of MyBlend is to help users remember their favorite recipes, understand what makes a drink better or worse, and make more informed adjustments when creating their next blend.
 
+*- My first exploration into vibe coding.* 
+
 ---
 
 ## Tech Stack
